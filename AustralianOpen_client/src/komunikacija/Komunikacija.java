@@ -33,7 +33,6 @@ public class Komunikacija {
     
     public ServerskiOdgovor primiOdgovor(){
         try {
-            //ois = new ObjectInputStream(s.getInputStream());
             return (ServerskiOdgovor) ois.readObject();
         } catch (IOException ex) {
             Logger.getLogger(Komunikacija.class.getName()).log(Level.SEVERE, null, ex);
@@ -45,7 +44,7 @@ public class Komunikacija {
     
     public void posaljiZahtev(KlijentskiZahtev kz){
         try {
-            //oos = new ObjectOutputStream(s.getOutputStream());
+            oos.reset();
             oos.writeObject(kz);
             oos.flush();
         } catch (IOException ex) {
